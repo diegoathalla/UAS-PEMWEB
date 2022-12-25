@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+<link rel="stylesheet" href="style.css">
+
+<body>
+    <center>
+        <h1>Inverse Matrix Calculator</h1>
+        <div class="matrixform">
+            <p>Isi Matrix Berikut : </p>
+            <br>
+            <input id="11" type="number" name="" placeholder="0" required>
+            <input id="12" type="number" name="" placeholder="0" required>
+            <input id="13" type="number" name="" placeholder="0" required>
+            <br>
+            <input id="21" type="number" name="" placeholder="0" required>
+            <input id="22" type="number" name="" placeholder="0" required>
+            <input id="23" type="number" name="" placeholder="0" required>
+            <br>
+            <input id="31" type="number" name="" placeholder="0">
+            <input id="32" type="number" name="" placeholder="0">
+            <input id="33" type="number" name="" placeholder="0">
+            <br>
+            <button onclick="myFunction()" value="Determinan : ">Cari Inverse</button>
+        </div>
+        <div class="box">
+            <div class="result">
+                <br>
+
+                <h3 id="det0"> </h3>
+                <h3>Hasil Determinan : </h3>
+                <div id="det">
+                    <h2 id="hasil"></h2>
+                </div>
+                <hr>
+                <br>
+                <h3>Hasil Minor Kofaktor : </h3>
+                <div id="adj"></div>
+                <br>
+                <table width="50%">
+                    <tr>
+                        <td>
+                            <table width="95%" style="margin:5px;">
+                                <tr>
+                                    <td width="10%">A11</td>
+                                    <td width="5%">=</td>
+                                    <td width="10%">(+)</td>
+                                    <td>
+                                        <table style="text-align:rightr;" width="100%">
+                                            <tr>
+                                                <td class="block1" style="text-align:cent
+                                er;" id="ka22"></td>
+                                                <td class="block1" style="text-align:cent
+                                er;" id="ka23"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="block1" style="text-align:cent
+                                er;" id="ka32"></td>
+                                                <td class="block1" style="text-align:cent
+                                er;" id="ka33"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td width="5%">=</td>
+                                    <td class="block1" id="h11"></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table width="95%" style="margin:5px;" style="margin:5px;">
+                                <tr>
+                                    <td width="10%">A12</td>
+                                    <td width="5%">=</td>
+                                    <td width="10%">(-)</td>
+                                    <td>
+                                        <table style="text-align:rightr;" width="100%">
+                                            <tr>
+                                                <td class="block1" style="text-align:cent
+                                er;" id="kc21"></td>
+                                                <td class="block1" style="text-align:cent
+                                er;" id="kc23"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="block1" style="text-align:cent
+                                er;" id="kc31"></td>
+                                                <td class="block1" style="text-align:cent
+                                er;" id="kc33"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td width="5%">=</td>
+                                    <td class="block1" id="h12"></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table width="95%" style="margin:5px;" style="margin:5px;">
+                                <tr>
+                                    <td width="10%">A13</td>
+                                    <td width="5%">=</td>
+                                    <td width="10%">(+)</td>
+                                    <td>
+                                        <table style="text-align:rightr;" width="100%">
+                                            <tr>
+                                                <td class="block1" style="text-align:cent
+                                er;" id="kb21"></td>
+                                                <td class="block1" style="text-align:cent
+                                er;" id="kb22"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="block1" style="text-align:cent
+                                er;" id="kb31"></td>
+                                                <td class="block1" style="text-align:cent
+                                er;" id="kb32"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td width="5%">=</td>
+                                    <td class="block1" id="h13"></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table width="95%" style="margin:5px;" style="margin:5px;">
+                                <tr>
+                                    <td width="10%">A21</td>
+                                    <td width="5%">=</td>
+                                    <td width="10%">(-)</td>
+                                    <td>
+                                        <table style="text-align:rightr;" width="100%">
+                                            <tr>
+                                                <td class="block1" style="text-align:cent
+                                er;" id="kl12"></td>
+                                                <td class="block1" style="text-align:cent
+                                er;" id="kl13"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="block1" style="text-align:cent
+                                er;" id="kl32"></td>
+                                                <td class="block1" style="text-align:cent
+                                er;" id="kl33"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td width="5%">=</td>
+                                    <td class="block1" id="h21"></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table width="95%" style="margin:5px;" style="margin:5px;">
+                                <tr>
+                                    <td width="10%">A22</td>
+                                    <td width="5%">=</td>
+                                    <td width="10%">(+)</td>
+                                    <td>
+                                        <table style="text-align:rightr;" width="100%">
+                                            <tr>
+                                                <td class="block1" style="text-align:cent
+                                er;" id="km11"></td>
+                                                <td class="block1" style="text-align:cent
+                                er;" id="km13"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="block1" style="text-align:cent
+                                er;" id="km31"></td>
+                                                <td class="block1" style="text-align:cent
+                                er;" id="km33"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td width="5%">=</td>
+                                    <td class="block1" id="h22"></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table width="95%" style="margin:5px;" style="margin:5px;">
+                                <tr>
+                                    <td width="10%">A23</td>
+                                    <td width="5%">=</td>
+                                    <td width="10%">(-)</td>
+                                    <td>
+                                        <table style="text-align:rightr;" width="100%">
+                                            <tr>
+                                                <td class="block1" style="text-align:cent
+                                er;" id="kn11"></td>
+                                                <td class="block1" style="text-align:cent
+                                er;" id="kn12"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="block1" style="text-align:cent
+                                er;" id="kn31"></td>
+                                                <td class="block1" style="text-align:cent
+                                er;" id="kn32">
+                                                    <td>
+                                            </tr>
+                                        </table>
+                                        </td>
+                                        <td width="5%">=</td>
+                                        <td class="block1" id="h23"></td>
+                                </tr>
+                            </table>
+                            </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table width="95%" style="margin:5px;" style="margin:5px;">
+                                <tr>
+                                    <td width="10%">A31</td>
+                                    <td width="5%">=</td>
+                                    <td width="10%">(+)</td>
+                                    <td>
+                                        <table width="100%">
+                                            <tr>
+                                                <td class="block1" style="text-align:cent
+                                er;" id="kp12"></td>
+                                                <td class="block1" style="text-align:center;" id="kp13"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="block1" style="text-align:cent
+                                er;" id="kp22"></td>
+                                                <td class="block1" style="text-align:cent
+                                er;" id="kp23"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td width="5%">=</td>
+                                    <td class="block1" id="h31"></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table width="95%" style="margin:5px;" style="margin:5px;">
+                                <tr>
+                                    <td width="10%">A32</td>
+                                    <td width="5%">=</td>
+                                    <td width="10%">(-)</td>
+                                    <td>
+                                        <table width="100%">
+                                            <tr>
+                                                <td class="block1" style="text-align:cent
+                                er;" id="kq11"></td>
+                                                <td class="block1" style="text-align:cent
+                                er;" id="kq13"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="block1" style="text-align:cent
+                                er;" id="kq21"></td>
+                                                <td class="block1" style="text-align:cent
+                                er;" id="kq23"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td width="5%">=</td>
+                                    <td class="block1" id="h32"></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table width="95%" style="margin:5px;" style="margin:5px;">
+                                <tr>
+                                    <td width="10%">A33</td>
+                                    <td width="5%">=</td>
+                                    <td width="10%">(+)</td>
+                                    <td>
+                                        <table width="100%">
+                                            <tr>
+                                                <td class="block1" style="text-align:cent
+                                er;" id="kr11"></td>
+                                                <td class="block1" style="text-align:cent
+                                er;" id="kr12"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="block1" style="text-align:cent
+                                er;" id="kr21"></td>
+                                                <td class="block1" style="text-align:cent
+                                er;" id="kr22"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td width="5%">=</td>
+                                    <td class="block1" id="h33"></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                </p>
+                <p>
+                    </td>
+
+                    <h3>Minor Kofaktor</h3>
+                    <p class="block" id="a1"></p>
+                    <p class="block" id="a2"></p>
+                    <p class="block" id="a3"></p>
+                    <br>
+                    <p class="block" id="a4"></p>
+                    <p class="block" id="a5"></p>
+                    <p class="block" id="a6"></p>
+                    <br>
+                    <p class="block" id="a7"></p>
+                    <p class="block" id="a8"></p>
+                    <p class="block" id="a9"></p>
+                    <br>
+                    <h3>Adjoint</h3>
+                    <p id="rumus"></p>
+                    <br>
+                    <p class="block" id="111"></p>
+                    <p class="block" id="112"></p>
+                    <p class="block" id="113"></p>
+                    <br>
+                    <p class="block" id="14"></p>
+                    <p class="block" id="15"></p>
+                    <p class="block" id="16"></p>
+                    <br>
+                    <p class="block" id="17"></p>
+                    <p class="block" id="18"></p>
+                    <p class="block" id="19"></p>
+
+
+
+                    <hr>
+                    <br>
+                    <br>
+                    <h3>Hasil Invers : </h3>
+
+                    <div id="inv"></div>
+                    <p class="block" id="c1"></p>
+                    <p class="block" id="c2"></p>
+                    <p class="block" id="c3"></p>
+                    <br>
+                    <p class="block" id="c4"></p>
+                    <p class="block" id="c5"></p>
+                    <p class="block" id="c6"></p>
+                    <br>
+                    <p class="block" id="c7"></p>
+                    <p class="block" id="c8"></p>
+                    <p class="block" id="c9"></p>
+                    <br>
+                    <hr>
+                    <div id="inv"></div>
+                    <p class="block" id="1"></p>
+                    <p class="block" id="2"></p>
+                    <p class="block" id="3"></p>
+                    <br>
+                    <p class="block" id="4"></p>
+                    <p class="block" id="5"></p>
+                    <p class="block" id="6"></p>
+                    <br>
+                    <p class="block" id="7"></p>
+                    <p class="block" id="8"></p>
+                    <p class="block" id="9"></p>
+            </div>
+        </div>
+    </center>
+</body>
+<script>
+    function myFunction() {
+        var a = document.getElementById("11").value;
+        var b = document.getElementById("12").value;
+        var c = document.getElementById("13").value;
+        var d = document.getElementById("21").value;
+        var e = document.getElementById("22").value;
+        var f = document.getElementById("23").value;
+        var g = document.getElementById("31").value;
+        var h = document.getElementById("32").value;
+        var i = document.getElementById("33").value;
+
+        var hasil = (parseInt(a) * parseInt(e) * parseInt(i)) + (parseInt(b) * parseInt(f) * parseInt(g)) + (parseInt(c) * parseInt(d) * parseInt(h)) - (parseInt(g) * parseInt(e) * parseInt(c)) - (parseInt(h) * parseInt(f) * parseInt(a)) - (parseInt(i) * parseInt(d) * parseInt(b));
+
+        document.getElementById('hasil').innerHTML = hasil;
+        var a11 = (e * i) - (h * f);
+        var a12 = ((d * i) - (g * f)) * -1;
+        var a13 = (d * h) - (g * e);
+        var a21 = ((b * i) - (h * c)) * -1;
+        var a22 = (a * i) - (g * c);
+        var a23 = ((a * h) - (g * b)) * -1;
+        var a31 = (b * f) - (e * c);
+        var a32 = ((a * f) - (d * c)) * -1;
+        var a33 = (a * e) - (d * b);
+
+
+
+        //proses kof 11-13
+        document.getElementById('ka22').innerHTML = e;
+        document.getElementById('ka23').innerHTML = f;
+        document.getElementById('ka32').innerHTML = h;
+        document.getElementById('ka33').innerHTML = i;
+
+        document.getElementById('kb21').innerHTML = d;
+        document.getElementById('kb22').innerHTML = e;
+        document.getElementById('kb31').innerHTML = g;
+        document.getElementById('kb32').innerHTML = h;
+
+        document.getElementById('kc21').innerHTML = d;
+        document.getElementById('kc23').innerHTML = f;
+        document.getElementById('kc31').innerHTML = g;
+        document.getElementById('kc33').innerHTML = i;
+
+        //21-23
+        document.getElementById('kl12').innerHTML = b;
+        document.getElementById('kl13').innerHTML = c;
+        document.getElementById('kl32').innerHTML = h;
+        document.getElementById('kl33').innerHTML = i;
+
+        document.getElementById('km11').innerHTML = a;
+        document.getElementById('km13').innerHTML = c;
+        document.getElementById('km31').innerHTML = g;
+        document.getElementById('km33').innerHTML = i;
+
+        document.getElementById('kn11').innerHTML = a;
+        document.getElementById('kn12').innerHTML = b;
+        document.getElementById('kn31').innerHTML = g;
+        document.getElementById('kn32').innerHTML = h;
+
+        //31-33
+        document.getElementById('kp12').innerHTML = b;
+        document.getElementById('kp13').innerHTML = c;
+        document.getElementById('kp22').innerHTML = e;
+        document.getElementById('kp23').innerHTML = f;
+
+        document.getElementById('kq11').innerHTML = a;
+        document.getElementById('kq13').innerHTML = c;
+        document.getElementById('kq21').innerHTML = d;
+        document.getElementById('kq23').innerHTML = f;
+
+        document.getElementById('kr11').innerHTML = a;
+        document.getElementById('kr12').innerHTML = b;
+        document.getElementById('kr21').innerHTML = d;
+        document.getElementById('kr22').innerHTML = e;
+
+
+
+        //hasil kof
+        document.getElementById('h11').innerHTML = a11;
+        document.getElementById('h12').innerHTML = a12;
+        document.getElementById('h13').innerHTML = a13;
+        document.getElementById('h21').innerHTML = a21;
+        document.getElementById('h22').innerHTML = a22;
+        document.getElementById('h23').innerHTML = a23;
+        document.getElementById('h31').innerHTML = a31;
+        document.getElementById('h32').innerHTML = a32;
+        document.getElementById('h33').innerHTML = a33;
+
+        //adjoint
+        document.getElementById('111').innerHTML = a11;
+        document.getElementById('112').innerHTML = a21;
+        document.getElementById('113').innerHTML = a31;
+        document.getElementById('14').innerHTML = a12;
+        document.getElementById('15').innerHTML = a22;
+        document.getElementById('16').innerHTML = a32;
+        document.getElementById('17').innerHTML = a13;
+        document.getElementById('18').innerHTML = a23;
+        document.getElementById('19').innerHTML = a33;
+
+        //kofaktor
+        document.getElementById('a1').innerHTML = a11;
+        document.getElementById('a2').innerHTML = a21;
+        document.getElementById('a3').innerHTML = a31;
+        document.getElementById('a4').innerHTML = a12;
+        document.getElementById('a5').innerHTML = a22;
+        document.getElementById('a6').innerHTML = a32;
+        document.getElementById('a7').innerHTML = a13;
+        document.getElementById('a8').innerHTML = a23;
+        document.getElementById('a9').innerHTML = a33;
+
+        var ina11 = (1 / hasil * (a11 * (1))).toFixed(2);
+        var ina12 = (1 / hasil * (a12 * (1))).toFixed(2);
+        var ina13 = (1 / hasil * (a13 * (1))).toFixed(2);
+        var ina21 = (1 / hasil * (a21 * (1))).toFixed(2);
+        var ina22 = (1 / hasil * (a22 * (1))).toFixed(2);
+        var ina23 = (1 / hasil * (a23 * (1))).toFixed(2);
+        var ina31 = (1 / hasil * (a31 * (1))).toFixed(2);
+        var ina32 = (1 / hasil * (a32 * (1))).toFixed(2);
+        var ina33 = (1 / hasil * (a33 * (1))).toFixed(2);
+
+        //rumus
+        document.getElementById('rumus').innerHTML = " 1 / " + hasil + " * ";
+        document.getElementById('c1').innerHTML = a11 + "/" + hasil;
+        document.getElementById('c2').innerHTML = a21 + "/" + hasil;
+        document.getElementById('c3').innerHTML = a31 + "/" + hasil;
+        document.getElementById('c4').innerHTML = a12 + "/" + hasil;
+        document.getElementById('c5').innerHTML = a22 + "/" + hasil;
+        document.getElementById('c6').innerHTML = a32 + "/" + hasil;
+        document.getElementById('c7').innerHTML = a13 + "/" + hasil;
+        document.getElementById('c8').innerHTML = a23 + "/" + hasil;
+        document.getElementById('c9').innerHTML = a33 + "/" + hasil;
+
+        document.getElementById('1').innerHTML = ina11;
+        document.getElementById('2').innerHTML = ina21;
+        document.getElementById('3').innerHTML = ina31;
+        document.getElementById('4').innerHTML = ina12;
+        document.getElementById('5').innerHTML = ina22;
+        document.getElementById('6').innerHTML = ina32;
+        document.getElementById('7').innerHTML = ina13;
+        document.getElementById('8').innerHTML = ina23;
+        document.getElementById('9').innerHTML = ina33;
+    }
+</script>
+
+</html>
